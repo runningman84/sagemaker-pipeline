@@ -55,5 +55,5 @@ Resources:
         - ModelName: !GetAtt Model.ModelName
           VariantName: AllTraffic
           InitialInstanceCount: 1
-          InstanceType: ml.t2.medium
+          InstanceType: ml.t3.medium
           InitialVariantWeight: 1
