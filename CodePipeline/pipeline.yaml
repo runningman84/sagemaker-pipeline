@@ -93,7 +93,7 @@ Resources:
       Environment:
         Type: LINUX_CONTAINER
         ComputeType: BUILD_GENERAL1_SMALL
-        Image: aws/codebuild/eb-python-3.4-amazonlinux-64:2.1.6
+        Image: aws/codebuild/standard:4.0
       Source:
         Type: CODEPIPELINE
         BuildSpec: !Sub |
@@ -101,6 +101,7 @@ Resources:
           phases:
             install:
               commands:
+                - apt-get update && apt-get install -y python3-pip
                 - echo "Installing wget and boto3"
                 - pip3 install wget
                 - pip3 install boto3
@@ -159,7 +160,7 @@ Resources:
       Environment:
         Type: LINUX_CONTAINER
         ComputeType: BUILD_GENERAL1_SMALL
-        Image: aws/codebuild/eb-python-3.4-amazonlinux-64:2.1.6
+        Image: aws/codebuild/standard:4.0
       Source:
         Type: CODEPIPELINE
         BuildSpec: !Sub |
@@ -167,6 +168,7 @@ Resources:
           phases:
             install:
               commands:
+                - apt-get update && apt-get install -y python3-pip
                 - echo "Installing wget and boto3"
                 - pip3 install wget
                 - pip3 install boto3
